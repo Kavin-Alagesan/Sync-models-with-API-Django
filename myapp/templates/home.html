@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+  <h3>Intern Demo</h3>
+  <h7>Please fill the following field to perform Models and API sync demo</h7>
+  <p></p>
+
+  <!-- Message block -->
+  {% if messages %}
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
+  {% endif %}
+</center>
+<p></p>
+<p></p>
+<!-- End message block -->
+
+<form class="was-validated" method="POST">
+  {% csrf_token %}
+  <div class="row mb-1">
+    <label for="validationServer01" class="col-sm-5">First name</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-check-label form-control" name='name' id="validationServer01" required>
+      <div class="invalid-feedback">
+        Please fill in!
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="row mb-1">
+    <label class="col-sm-5">Gender</label>
+    <div class="col-sm-3">
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck2" name="gender" value="Male" required>
+        <label class="form-check-label" for="validationFormCheck2">Male</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck2" name="gender" value="Female" required>
+        <label class="form-check-label" for="validationFormCheck2">Female</label>
+      </div>
+      <div class="form-check mb-3">
+        <input type="radio" class="form-check-input" id="validationFormCheck3" name="gender" value="Others" required>
+        <label class="form-check-label" for="validationFormCheck3">Others</label>
+        <div class="invalid-feedback">Select anyone of the above</div>
+      </div>
+    </div>
+  </div>
+  <p></p>
+
+  <div class="col-12">
+    <label for="date" class="col-sm-1 col-form-label">DOB</label>
+    <div class="input-group date" id="datepicker">
+      <input type="date" class="form-control" name="dob">
+    </div>
+  </div>
+
+
+  <div class="row mb-1">
+    <label for="validationServer01" class="col-sm-5">Qualification</label>
+    <div class="col-sm-3">
+      <select class="form-select" name="qualification" required aria-label="select example">
+        <option value="">Open this select menu</option>
+        <option value="No formal education">No formal education</option>
+        <option value="Primary education">Primary education</option>
+        <option value="Secondary education">Secondary education or high school</option>
+        <option value="GED">GED</option>
+        <option value="Vocational qualification">Vocational qualification</option>
+        <option value="Bachelor's degree">Bachelor's degree</option>
+        <option value="Master's degree">Master's degree</option>
+        <option value="Doctorate or higher">Doctorate or higher</option>
+      </select>
+      <div class="invalid-feedback">Select your qualification</div>
+    </div>
+  </div>
+  <p></p>
+  <div class="row mb-1">
+    <label for="validationServer01" class="col-sm-5">Contact Number</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-check-label form-control" name="contact" id="validationServer01" required>
+      <div class="invalid-feedback">
+        Please enter your contact number.
+      </div>
+    </div>
+  </div>
+  </div>
+  <p></p>
+  <div class="row mb-1">
+    <label for="validationServer01" class="col-sm-5">Address</label>
+    <div class="col-sm-3">
+      <textarea class="form-check-label form-control" name='address' id="validationTextarea"
+        placeholder="Required example textarea" required></textarea>
+      <div class="invalid-feedback">
+        Please enter your address.
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="row mb-1">
+    <label for="validationServer01" class="col-sm-5">Upload Image</label>
+    <div class="col-sm-3">
+      <input type="file" class="form-check-label form-control" name='image' aria-label="file example">
+      <div class="invalid-feedback">Upload your photo id</div>
+    </div>
+  </div>
+  <p></p>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+    <label class="form-check-label" for="validationFormCheck1">Check this checkbox</label>
+    <div class="invalid-feedback">I have entered all required fields.</div>
+  </div>
+  <p></p>
+  <div class="mb-3">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+
+{% endblock %}
